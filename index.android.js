@@ -12,8 +12,8 @@ import {
   View
 } from 'react-native';
 
-export default class RNJerry extends Component {
-  render() {
+export default class RNJerry extends Component{
+  render(){
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
