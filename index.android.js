@@ -27,7 +27,7 @@ export default class RNJerry extends Component{
           Shake or press menu button for dev menu
         </Text>
       </View>
-    );
+    )
   }
 }
 
