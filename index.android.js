@@ -14,11 +14,21 @@ import {
 } from 'react-native';
 
 const TextHeader=require('./Text_Header');
+const TextHeader2=require('./Text_Header2');
+const TextContent=require('./Text_Content');
 
 export default class RNJerry extends Component{
   render(){
     return (
-       <TextHeader></TextHeader>
+      <View style={styles.flex}>
+        <TextHeader2></TextHeader2>
+        <TextContent></TextContent>
+      </View>
+      
+      /*<View>
+        <TextHeader2></TextHeader2>
+        <TextContent></TextContent>
+      </View>*/
     );
   }
 }
