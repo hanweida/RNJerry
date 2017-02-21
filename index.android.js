@@ -17,11 +17,12 @@ import  {
 
 const Navigator_1=require('./Navigator_1');
 const TextInput_1=require('./TextInput_1');
+const TouchAble_1=require('./Touchable_1');
 
 class RNJerry extends Component {
   render(){
     return(
-      <TextInput_1></TextInput_1>
+      <TouchAble_1></TouchAble_1>
     );
   }
 }

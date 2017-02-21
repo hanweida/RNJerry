@@ -41,24 +41,38 @@ class Search extends Component {
     };
   }
 
+  // hide(val){
+  //   this.setState(
+  //       {
+  //         show: false,
+  //         value: val,
+  //       }
+  //   );
+  // }
+
+  // getValue(text){
+
+  //     this.setState({
+  //       show: true,
+  //       value: text,
+  //     });
+
+  // }
+
   hide(val){
-    this.setState(
-        {
-          show: false,
-          value: val,
-        }
-    );
+    this.setState({
+      show:false,
+      value:val,
+    });
   }
 
-  getValue(text){
-
-      this.setState({
-        show: true,
-        value: text,
-      });
-
+  getValue(text,text2){
+    this.setState({
+      show:true,
+      value:text,
+      value2:text2,
+    });
   }
-
 
   render(){
     return(
@@ -69,29 +83,40 @@ class Search extends Component {
                   keyboardType="web-search"
                   placeholder="请输入关键词"
                   value={this.state.value}
-                  onChangeText={this.getValue.bind(this)}/>
+                  onChangeText={this.getValue.bind(this)}
+                  />
             </View>
-            <View style={styles.btn}>
-              <Text style={styles.search} onPress={this.hide.bind(this, this.state.value)}>搜索</Text>
+            <View style={styles.btn}
+            >
+              <Text style={styles.search} >搜索</Text>
             </View>
           </View>
           {this.state.show?
-              <View style={styles.result}>
-                <Text onPress={this.hide.bind(this, this.state.value + '加东方QQ')}
-                      style={styles.item} numberOfLines={1}>{this.state.value}加东方QQ</Text>
-                <Text onPress={this.hide.bind(this, this.state.value + '园街')}
-                      style={styles.item} numberOfLines={1}>{this.state.value}园街</Text>
-                <Text onPress={this.hide.bind(this, 80 + this.state.value + '综合商店')}
-                      style={styles.item} numberOfLines={1}>80{this.state.value}综合商店</Text>
-                <Text onPress={this.hide.bind(this, this.state.value + '桃')}
-                      style={styles.item} numberOfLines={1}>{this.state.value}桃</Text>
-                <Text onPress={this.hide.bind(this, '东方耀' + this.state.value )}
-                      style={styles.item} numberOfLines={1}>东方耀{this.state.value}</Text>
-              </View>
-              : null
+            <View style={styles.result}>
+              <Text
+                onPress={this.hide.bind(this, this.state.value+'to Hello')}
+              >
+                {this.state.value}to Hello
+              </Text>
+              <Text
+                 onPress={this.hide.bind(this, this.state.value+'to Say')}
+              >
+                {this.state.value}to Say
+              </Text>
+              <Text
+                 onPress={this.hide.bind(this, this.state.value+'to SayGoodBye')}
+              >
+                {this.state.value}to SayGoodBye
+              </Text>
+              <Text
+                 onPress={this.hide.bind(this, this.state.value+'to No')}
+              >
+                {this.state.value}to No
+              </Text>
+            </View>
+          :null
           }
         </View>
-
     );
   }
 }
