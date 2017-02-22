@@ -44,4 +44,3 @@ class Picker_1 extends Component{
 //  箭头函数    onValueChange={(lang) => this.setState({language:lang})}
 
 module.exports=Picker_1
-

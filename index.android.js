@@ -19,11 +19,12 @@ const Navigator_1=require('./Navigator_1');
 const TextInput_1=require('./TextInput_1');
 const TouchAble_1=require('./Touchable_1');
 const Picker_1=require('./Picker_1');
+import ProgressBarAndroid_1 from './ProgressBarAndroid_1'
 
 class RNJerry extends Component {
   render(){
     return(
-      <Picker_1></Picker_1>
+      <ProgressBarAndroid_1></ProgressBarAndroid_1>
     );
   }
 }
