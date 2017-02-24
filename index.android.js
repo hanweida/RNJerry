@@ -21,11 +21,14 @@ const TouchAble_1=require('./Touchable_1');
 const Picker_1=require('./Picker_1');
 import ProgressBarAndroid_1 from './ProgressBarAndroid_1';
 import DrawerLayoutAndroid_1 from './DrawerLayoutAndroid_1';
-
+import ViewPagerAndroid_1 from './ViewPagerAndroid_1';
+import ViewPageIndex from './zujian/ViewPageIndex';
 class RNJerry extends Component {
   render(){
     return(
-      <DrawerLayoutAndroid_1></DrawerLayoutAndroid_1>
+      <View style={[{flex:1}]}>
+        <ViewPageIndex></ViewPageIndex>
+      </View>
     );
   }
 }

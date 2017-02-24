@@ -7,7 +7,7 @@ import {
     Navigator,
     ScrollView
  } from 'react-native';
-
+                          //这个是页面之间跳转时候的动画，具体有哪些？可以看这个目录下，有源代码的: node_modules/react-native/Libraries/CustomComponents/Navigator/NavigatorSceneConfigs.js
  export class Navigator_1 extends Component{
      render() {
       let defaultName='List';
