@@ -26,9 +26,7 @@ import ViewPageIndex from './zujian/ViewPageIndex';
 class RNJerry extends Component {
   render(){
     return(
-      <View style={[{flex:1}]}>
         <ViewPageIndex></ViewPageIndex>
-      </View>
     );
   }
 }

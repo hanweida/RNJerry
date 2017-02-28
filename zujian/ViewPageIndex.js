@@ -4,8 +4,12 @@ import {
     StyleSheet,
     Text,
     View,
-    Navigator
+    Navigator,
+    ViewPagerAndroid,
+    Image
 } from 'react-native';
+
+import LikeCount from './LikeCount'
 
 const PAGES=5;
 
@@ -78,17 +82,71 @@ class WelcomeUi extends Component{
       }
   }
 
+  //onPageScroll(e){
+  //  //当在页间切换时（不论是由于动画还是由于用户在页间滑动/拖拽）执行。
+  //  this.setState({progress:e.nativeEvent});
+  //}
+
+  //See React on ES6+
   onPageSelected=(e)=>{
-      //这个回调会在页面切换完成后（当用户在页面间滑动）调用
-     //回调参数中的event.nativeEvent对象
-     this.setState();
+//当在页间切换时（不论是由于动画还是由于用户在页间滑动/拖拽）执行。
+//    回调参数中的event.nativeEvent对象会包含如下数据：
+//
+//position 从左数起第一个当前可见的页面的下标。
+//
+//offset 一个在[0,1)（大于等于0，小于1）之间的范围，代表当前页面切换的状态。值x表示现在"position"所表示的页有(1 - x)的部分可见，而下一页有x的部分可见。
+     this.setState({page:e.nativeEvent.position});
   }
 
+onPageScroll=(e)=>{
+     this.setState({progress:e.nativeEvent});
+}
     render(){
+        const thunbsUp='\uD83D\uDC4D';
+        var pages=[];
+        for(var i =0; i<PAGES;i++){
+            var pageStyle={
+                backgroundColor:BGCOLOR[i % BGCOLOR.length],
+                alignItems:'center',
+                padding:20
+            };
+
+            if(i<PAGES-1){
+            //前面几个viewpage
+            //collapsable 如果一个View只用于布局它的子组件，
+            // 则它可能会为了优化而从原生布局树中移除。 把此属性设为false可以禁用这个优化，以确保对应视图在原生结构中存在。          
+                pages.push(
+                    <View key={i} style={pageStyle} collapsable={false}>
+                        <Image 
+                            //style={styles.image}
+                            source={{uri:IMAGE_URIS[i % BGCOLOR.length]}}
+                        />
+                        <LikeCount />
+                    </View>
+                );
+            }
+        }
+
         return(
             <View>
-                <Text>ddd</Text>
+                <ViewPagerAndroid
+                    style={styles.viewPager}
+                    initialPage={0}
+                    onPageScroll={this.onPageScroll}
+                    onPageSelected={this.onPageSelected}
+                    ref={viewPager => {this.viewPager=viewPager}}
+                >
+                {pages}
+      </ViewPagerAndroid>
             </View>
         );
     }
 }
+
+const styles = StyleSheet.create({
+    viewPager:{
+         alignItems:'center',
+        padding:20
+    }
+
+});
