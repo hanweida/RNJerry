@@ -9,7 +9,7 @@ import {
     StyleSheet,
     Text,
     TouchableWithoutFeedback,
-    View
+    View 
     } from 'react-native';
     
 export default class Button extends Component{
