@@ -80,9 +80,6 @@ export default class HomeUI extends Component {
             navigator.pop();
         }
     }
-
-
-
     render() {
 
 
