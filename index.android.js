@@ -25,7 +25,7 @@ import ViewPageIndex from './zujian/ViewPageIndex';
 class RNJerry extends Component {
   render(){
     return(
-        <ViewPagerAndroid_1></ViewPagerAndroid_1>
+        <ViewPageIndex></ViewPageIndex>
     );
   }
 }

@@ -191,10 +191,27 @@ class List extends Component {
         //为什么这里可以取得 props.navigator?请看上文:
         //<Component {...route.params} navigator={navigator} />
         //这里传递了navigator作为props
+        let _that = this;
         if (navigator) {
             navigator.push({
                 name: 'GouWu',
                 component: GouWu,
+                params:{
+                    fetchData:function(){
+                         console.log('启动fetchData里的方法了');
+
+                        AsyncStorage.clear(function (err) {
+                            if (!err) {
+                                _that.setState({
+                                    count: 0,
+                                });
+
+                                alert('购物车已经清空');
+                            }
+                        });
+
+                    }
+                }
             })
         }
     }
@@ -226,10 +243,6 @@ class List extends Component {
         let r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
         return v.toString(16);
     }).toUpperCase();
-
-
-
-
     }
 
 
@@ -309,8 +322,6 @@ class GouWu extends Component {
 
             </ScrollView>
         );
-
-
     }
 
 
@@ -344,17 +355,29 @@ class GouWu extends Component {
     }
 
     clearStorage() {
-        let _that = this;
-        AsyncStorage.clear(function (err) {
-            if (!err) {
-                _that.setState({
-                    data: [],
-                    price: 0,
-                });
+        // let _that = this;
+        // AsyncStorage.clear(function (err) {
+        //     if (!err) {
+        //         _that.setState({
+        //             data: [],
+        //             price: 0,
+        //         });
 
-                alert('购物车已经清空');
-            }
-        });
+        //         alert('购物车已经清空');
+        //     }
+        // });
+        console.log('点击了清空购物车');
+        if (this.props.fetchData) {
+            console.log('点击了清空购物车----回调去影响List页面');
+            this.props.fetchData();
+
+        }
+
+        const { navigator } = this.props;
+        if (navigator) {
+
+            navigator.pop();
+        }
     }
 
 
