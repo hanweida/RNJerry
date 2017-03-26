@@ -3,127 +3,78 @@
  * https://github.com/facebook/react-native
  * @flow
  */
+import React,{Component} from 'react';
+import  {
+    AppRegistry,
+    StyleSheet,
+    PixelRatio,
+    Navigator,
+    ScrollView,
+    Text,
+    View,
+    TouchableOpacity,
+    NativeModules
+    } from 'react-native';
 
-import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View,
-  PixelRatio,
-} from 'react-native';
+// const TextInput_1=require('./TextInput_1');
+// const TouchAble_1=require('./Touchable_1');
+// const Picker_1=require('./Picker_1');
+// import ProgressBarAndroid_1 from './ProgressBarAndroid_1';
+// import DrawerLayoutAndroid_1 from './DrawerLayoutAndroid_1';
+// import ViewPagerAndroid_1 from './ViewPagerAndroid_1';
+// import ViewPageIndex from './zujian/ViewPageIndex';
+import ToastRNModule from './nativemodules/ToastRNModule'
+export default class RNJerry extends Component {
 
-export default class RNJerry extends Component{
-
-   constructor(props) {
-        super(props);
-
-        this.state = {
-            count: '0',
-        };
-    }
-
+  _click(){
+    ToastRNModule.show('东方耀-rn调用原生模块的方法-成功啦');
+  }
 
   render(){
-    return (
-      <View style={styles.flex}>
-        <Text>{this.state.count}</Text>
-      </View>
+    return(
+        <View style={styles.container}>
+          <TouchableOpacity
+              onPress={this._click}
+          >
+            <Text>测试</Text>
+          </TouchableOpacity>
+        </View>
     );
-
-    
   }
-
-componentWillMount () {
-    
 }
 
-
- jiexi=(message)=>{
-   var reg = new RegExp("[a-zA-z]+://[^\s]*html");
-   var counts = 0;
-   var length = 0;
-   var substr = "";
-   if(reg.test(message)){
-      console.log("匹配成功");
-      counts = message.indexOf("http://s.tmiaoo.com");
-      length = "http://s.tmiaoo.com/ipad.html".length + counts;
-      console.log(counts);
-      console.log(length);
-      console.log(message);
-      substr = message.substring(counts,length);
-      console.log(substr);
-  }
-    this.setState({
-          count:message
-       });
- }
-
-
-fetchData=(url)=>{
-var responses = fetch(url)
-      .then((response) => response.text())
-      .then((responseJson) => {
-        console.log(responseJson);
-        return responseJson;
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-      return responses;
-}
-
-  componentDidMount() {
-    var url = new Request('http://nba.tmiaoo.com/nba.html');
-   var responses = this.fetchData(url);
-     responses.then((successMessage)=>{
-       this.jiexi(successMessage);
-     });
-  }
-
-
-}
-
-const styles = StyleSheet.create( {
-  flex: {
-    flex:1,
-        justifyContent:'center',
-    alignItems:'center',
-  },
-  container: {
-    marginTop:200,
-    marginLeft:5,
-    marginRight:5,
-    height:84,
-    flexDirection:'row',
-    borderRadius:5,
-    padding:2,
-    backgroundColor:'#FF0067',
+const styles = StyleSheet.create({
+  backgroundVideo: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
 },
-  item: {
-    flex:1,
-    height: 80,
-    //backgroundColor:'#333333',
-    borderColor:'#FF0067',
+container:{
+  flex:1,
+  justifyContent: 'center',
+        alignItems: 'center',
+},
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
   },
-  font:{
-    color:'#fff5ee',
-    fontSize:14,
-    fontWeight:'bold'
+  instructions: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
   },
-  center:{
-    justifyContent:'center',
-    alignItems:'center',
-  }, 
-  lineLeftRight:{
-    borderLeftWidth:1/PixelRatio.get(),
-    borderRightWidth:1/PixelRatio.get(),
-    borderColor:'#fff',
-  },
-  lineCenter:{
-    borderBottomWidth:1/PixelRatio.get(),
-    borderColor:'#fff',
-  },
+  button: {
+    padding: 5,
+    margin: 5,
+    borderWidth: 1,
+    borderColor: 'white',
+    borderRadius: 3,
+    backgroundColor: 'grey',
+  }
 });
-  
+
 AppRegistry.registerComponent('RNJerry', () => RNJerry);
+
