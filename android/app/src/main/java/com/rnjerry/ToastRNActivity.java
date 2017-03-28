@@ -26,15 +26,18 @@ public class ToastRNActivity extends ReactContextBaseJavaModule {
     @ReactMethod
     public void show(String message){
         Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show();
-
-//        Intent intent = new Intent(mContext, MyActivity.class);
-//        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//        mContext.startActivity(intent);
-        Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
-        Bundle bundle = new Bundle();
-        mContext.startActivityForResult(intent, 1 ,bundle);
+    //   调用原生Activity
+    //   Intent intent = new Intent(mContext, MyActivity.class);
+    //    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+    //    mContext.startActivity(intent);
+    
+    // 调用原生Activity，手机联系人
+         Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
+         Bundle bundle = new Bundle();
+         mContext.startActivityForResult(intent, 1 ,bundle);
     }
 
+    // 调用原生Activity，手机联系人，后回调RN侧，调用方法
     public void sendMsgToRn(String message){
         //将消息发送给RN测
         mContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class).emit("AndroidToRNMessage", message);    }

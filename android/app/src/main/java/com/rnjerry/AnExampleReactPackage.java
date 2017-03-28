@@ -15,10 +15,13 @@ import java.util.List;
  * Created by jerry on 2017/3/26.
  */
 public class AnExampleReactPackage implements ReactPackage {
+    public ToastRNActivity myNativeModule;
+
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
         List<NativeModule> modules = new ArrayList<>();
-        modules.add(new ToastRNActivity(reactContext));
+        myNativeModule=new ToastRNActivity(reactContext);
+        modules.add(myNativeModule);
         return modules;
     }
 

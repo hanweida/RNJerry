@@ -16,6 +16,11 @@ import com.github.yamill.orientation.OrientationPackage;
 
 public class MainApplication extends Application implements ReactApplication {
 
+  private static final AnExampleReactPackage myReactPackage=new AnExampleReactPackage();
+  public static AnExampleReactPackage getMyReactPackage() {
+    return myReactPackage;
+  }
+
   private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
     @Override
     public boolean getUseDeveloperSupport() {
@@ -28,7 +33,7 @@ public class MainApplication extends Application implements ReactApplication {
           new MainReactPackage(),
           new ReactVideoPackage(),
           new OrientationPackage(),
-              new AnExampleReactPackage()
+              myReactPackage
       );
     }
   };

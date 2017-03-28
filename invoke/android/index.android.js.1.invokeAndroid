@@ -30,19 +30,6 @@ export default class RNJerry extends Component {
   _click(){
     ToastRNModule.show('-成功啦');
   }
-  componentWillMount(){
-    DeviceEventEmitter.addListener('AndroidToRNMessage',this.handleAndroidMessage);
-  }
-
-  componentWillunMount(){
-     DeviceEventEmitter.remove('AndroidToRNMessage',this.handleAndroidMessage);
-  }
-
-
-  handleAndroidMessage=(msg)=>{
-
-     console.log(msg);
-  }
   render(){
     return(
         <View style={styles.container}>
