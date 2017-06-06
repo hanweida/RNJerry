@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.support.annotation.Nullable;
 import android.widget.Toast;
 
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -13,6 +14,10 @@ import com.facebook.react.modules.core.DeviceEventManagerModule;
 import com.facebook.react.bridge.Callback;
 import com.facebook.react.uimanager.IllegalViewOperationException;
 import com.facebook.react.bridge.Promise;
+
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by jerry on 2017/3/26.
  */
