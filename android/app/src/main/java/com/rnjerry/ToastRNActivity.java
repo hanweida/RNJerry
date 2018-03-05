@@ -61,7 +61,6 @@ public class ToastRNActivity extends ReactContextBaseJavaModule {
         mContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class).emit("AndroidToRNMessage", message);    
     }
 
-
     //调用原生方法_使用_Promise
     @ReactMethod
     public void rnCallNative_promise(String msg, Promise promise) {
