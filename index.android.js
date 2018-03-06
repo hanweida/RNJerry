@@ -21,7 +21,7 @@ export default class RNJerry extends Component {
   render(){
     return(
         <View style={styles.container}>
-
+          <Text>Success</Text>
         </View>
     );
   }
