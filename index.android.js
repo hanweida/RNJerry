@@ -17,14 +17,24 @@ import  {
     DeviceEventEmitter
     } from 'react-native';
 
+import SimpleTabNavigator  from './zujian/navigation/SimpleTabNavigator';
+
 export default class RNJerry extends Component {
   render(){
     return(
         <View style={styles.container}>
-          <Text>Success</Text>
+          <SimpleTabNavigator></SimpleTabNavigator>
         </View>
     );
   }
+
+  // render(){
+  //   return(
+  //       <View style={styles.container}>
+  //         <Text>Success</Text>
+  //       </View>
+  //   );
+  // }
 }
 
 const styles = StyleSheet.create({
@@ -37,8 +47,6 @@ const styles = StyleSheet.create({
 },
 container:{
   flex:1,
-  justifyContent: 'center',
-        alignItems: 'center',
 },
   welcome: {
     fontSize: 20,
